@@ -8,9 +8,9 @@
 import Foundation
 
 enum BaseUrl: String {
-    case PROD = "sss"
-    case DEV  = "www"
-    case STAG = "fff"
+    case DEV  = "https://api.openweathermap.org/data/2.5/"
+    case PROD = "https://api.openweathermap.org/data/2.6/"
+    case STAG = "https://api.openweathermap.org/data/2.7/"
 }
 
 class ServerConfig {
@@ -27,5 +27,9 @@ class ServerConfig {
         #elseif STAG
         self.baseURL = BaseUrl.STAG.rawValue
         #endif
+    }
+    
+     func getURLFrom(lat: Double, lon: Double) -> String {
+        return "\(baseURL)oncall?lat=\(lat)&lon=\(lon)&exclude=minutely&appid=\(Constants.APIKEY)&units=imperial"
     }
 }

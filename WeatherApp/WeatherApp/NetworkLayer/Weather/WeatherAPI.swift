@@ -16,4 +16,3 @@ class WeatherAPI: BaseApi<WeatherNetworking>, WeatherAPIProtocol{
     // MARK: - Requests
     
 }
-
