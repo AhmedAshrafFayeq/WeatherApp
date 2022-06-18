@@ -16,7 +16,7 @@ extension WeatherNetworking: TargetType{
     var baseURL: String {
         switch self {
         default:
-            return "https://reqres.in/api"
+            return ServerConfig.shared.baseURL
         }
     }
 
