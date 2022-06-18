@@ -14,7 +14,8 @@ class CityViewModel {
     //MARK: - Vars
     var weatherAPI = WeatherAPI()
     var weatherResponse: WeatherResponse?
-   // let currentDayPublishSubject = PublishSubject<CurrentDay>()
+    let currentDayHoursBehaviourSubject = BehaviorSubject(value: [CurrentConditions]())
+    let currentDayBehaviourSubject      = BehaviorSubject(value: [CurrentConditions]())
     
     private lazy var dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
@@ -47,7 +48,10 @@ class CityViewModel {
             case .success(let response):
                 guard let response = response else{return}
                 self.weatherResponse = response
+                self.currentDayHoursBehaviourSubject.on(.next(response.days.first?.hours ?? []))
+                self.currentDayBehaviourSubject.on(.next(response.days))
                 completion(true)
+                
             case .failure(let error):
                 print(error.localizedDescription)
                 completion(false)

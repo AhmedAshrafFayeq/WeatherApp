@@ -16,8 +16,8 @@ class TodayStateCollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.image = UIImage(systemName: "sun.min" , withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))
-        image.backgroundColor = .systemBackground
         image.layer.cornerRadius = 10
+        image.tintColor = .white
         image.translatesAutoresizingMaskIntoConstraints = false
         
         return image
@@ -29,8 +29,7 @@ class TodayStateCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.textColor = .label
         label.textAlignment = .center
-        label.text = "40%"
-        label.font = .systemFont(ofSize: 15, weight: .bold)
+        label.font = .systemFont(ofSize: 12, weight: .bold)
         return label
     }()
     
@@ -64,7 +63,6 @@ class TodayStateCollectionViewCell: UICollectionViewCell {
             tempImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             tempImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
             tempImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 15),
-
             tempLabel.topAnchor.constraint(equalTo: tempImageView.bottomAnchor,constant: 5),
             tempLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
             tempLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -8),
@@ -75,9 +73,10 @@ class TodayStateCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Cell Configuration with Models
     
-    public func configureCell(model : Double) {
+    public func configureCell(model : String, icon: Icons) {
         
-        tempLabel.text = "\(model)"
-        
+        tempLabel.text = model
+        tempImageView.image = UIImage(systemName: icon.rawValue , withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
+                
     }
 }

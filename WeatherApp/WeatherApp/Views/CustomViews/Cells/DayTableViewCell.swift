@@ -18,7 +18,6 @@ class DayTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         label.textColor = .label
         label.textAlignment = .center
-        label.text = "10 AM"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
     }()
@@ -29,7 +28,6 @@ class DayTableViewCell: UITableViewCell {
         label.numberOfLines = 1
         label.textColor = .label
         label.textAlignment = .center
-        label.text = "40%"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
     }()
@@ -96,12 +94,24 @@ class DayTableViewCell: UITableViewCell {
     }
     
     //MARK: - Cell Configuration with Models
-    public func configureCell() {
-        
-        
+    public func configureCell(model: CurrentConditions) {
+        dayLabel.text = getDayDiscription(date:model.datetime)
+        if let tempmin = model.tempmin, let tempmax = model.tempmax {
+            tempLabel.text = "\(tempmin) || \(tempmax)"
+        }
+        tempImageView.image = UIImage(systemName:  Icons.getWeatherIcon(icon: model.icon ?? "sun.min.fill"), withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
         
     }
     
-    
+    private func getDayDiscription(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd"
+        let myDate = dateFormatter.date(from: date) ?? Date()
+
+        dateFormatter.dateFormat = "E"
+        let somedateString = dateFormatter.string(from: myDate)
+        
+        return somedateString
+    }
     
 }
