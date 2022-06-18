@@ -30,6 +30,6 @@ class ServerConfig {
     }
     
      func getURLFrom(lat: Double, lon: Double) -> String {
-        return "\(baseURL)oncall?lat=\(lat)&lon=\(lon)&exclude=minutely&appid=\(Constants.APIKEY)&units=imperial"
+        return "\(baseURL)onecall?lat=\(lat)&lon=\(lon)&exclude=minutely&appid=\(Constants.APIKEY)&units=imperial"
     }
 }
