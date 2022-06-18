@@ -7,13 +7,30 @@
 
 import Foundation
 
+// MARK: - WeatherResponse
 struct WeatherResponse: Codable {
-    var current: Weather
-    var hourly: [Weather]
-    var daily: [DailyWeather]
+    let latitude, longitude: Double
+    let address, timezone: String
+    let tzoffset: Int
+    let days: [CurrentConditions]
+    let currentConditions: CurrentConditions
     
-    static func empty() -> WeatherResponse {
-        return WeatherResponse(current: Weather(), hourly: [Weather](repeating: Weather(), count: 23), daily: [DailyWeather](repeating: DailyWeather(), count: 8))
-    }
-    
+}
+
+
+// MARK: - CurrentConditions
+struct CurrentConditions: Codable {
+    let datetime: String
+    let datetimeEpoch: Int
+    let temp, feelslike, humidity, dew: Double
+    let precip: Int
+    let precipprob: Int?
+    let snow, snowdepth: Int
+    let windspeed: Double
+    let pressure, visibility, cloudcover, solarradiation: Double
+    let uvindex: Int
+    let conditions: String
+    let icon: String
+    let hours: [CurrentConditions]?
+
 }
