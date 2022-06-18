@@ -8,9 +8,9 @@
 import Foundation
 
 enum BaseUrl: String {
-    case DEV  = "https://api.openweathermap.org/data/2.5/"
-    case PROD = "https://api.openweathermap.org/data/2.6/"
-    case STAG = "https://api.openweathermap.org/data/2.7/"
+    case DEV  = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
+    case PROD = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/  "
+    case STAG = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/ "
 }
 
 class ServerConfig {
@@ -18,6 +18,7 @@ class ServerConfig {
     private init(){}
     
     var baseURL: String?
+    var url: String?
     
     func setupServerConfig() {
         #if PROD
@@ -29,7 +30,10 @@ class ServerConfig {
         #endif
     }
     
-     func getURLFrom(lat: Double, lon: Double) -> String {
-        return "\(baseURL)onecall?lat=\(lat)&lon=\(lon)&exclude=minutely&appid=\(Constants.APIKEY)&units=imperial"
+     func setURLFrom(lat: Double, lon: Double){
+         guard let baseURL = baseURL else {
+             return
+         }
+         url = "\(baseURL)\(lat),\(lon)?key=\(Constants.APIKEY)\(Constants.APIEncludes)"
     }
 }
