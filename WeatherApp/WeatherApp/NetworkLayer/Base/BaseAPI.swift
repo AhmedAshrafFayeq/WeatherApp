@@ -16,6 +16,8 @@ class BaseApi<T:TargetType> {
         let params  = buildParams(task: target.task)
         AF.request(target.baseURL + target.path, method: method, parameters:params.0, encoding: params.1, headers: headers).responseDecodable { (response: DataResponse<M, AFError>) in
             
+            print(target.baseURL + target.path)
+            
             switch response.result {
             case .success(let jsonResponseObject):
                 completion(.success(jsonResponseObject))

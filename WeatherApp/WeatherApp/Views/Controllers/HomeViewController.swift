@@ -6,10 +6,16 @@
 //
 
 import UIKit
+import CoreLocation
+import RxSwift
+import RxCocoa
 
 class HomeViewController: UIViewController {
     
     //MARK: - Vars
+    var cityViewModel = CityViewModel()
+    var disposeBag = DisposeBag()
+    
     private let searchBar : UISearchBar = {
         let search = UISearchBar()
         search.placeholder = "Seacrh..."
@@ -29,14 +35,12 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureView()
-        
+        getData()
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         tableView.frame = CGRect(x: 16, y: 0, width: view.bounds.width - 32, height: view.bounds.height)
-        
-        
     }
     
     //MARK: - View Configuration
@@ -44,11 +48,37 @@ class HomeViewController: UIViewController {
         view.addSubview(tableView)
         view.backgroundColor = .systemBackground
         configureNavBar()
-        configureHeaderView()
         tableView.delegate = self
         tableView.dataSource = self
     }
     
+    private func getData() {
+        cityViewModel.getData { [weak self] isSuccess in
+            if isSuccess {
+                guard let timezone = self?.cityViewModel.weatherResponse?.timezone,
+                        let temp = self?.cityViewModel.weatherResponse?.days.first?.temp,
+                        let state = self?.cityViewModel.weatherResponse?.days.first?.conditions,
+                        let windSpeed = self?.cityViewModel.weatherResponse?.days.first?.windspeed,
+                        let humindty = self?.cityViewModel.weatherResponse?.days.first?.humidity,
+                      let pressure = self?.cityViewModel.weatherResponse?.days.first?.pressure,
+                let date = self?.cityViewModel.configureWithData(date: self?.cityViewModel.weatherResponse?.days[0].datetime ?? "") else {
+                          print("Cant create Object correctly ")
+                          return
+                      }
+                
+                let currentDay = CurrentDay(countryName: timezone, date: date, state: state, windSpeed: windSpeed, humindty: humindty, pressure: pressure, temp: temp)
+
+                self?.configureHeaderView(currentDay: currentDay)
+                DispatchQueue.main.async {
+                    self?.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    func configureCurrentDay() {
+        
+    }
     
     //MARK: - NavBar Configuration
     func configureNavBar()  {
@@ -61,12 +91,19 @@ class HomeViewController: UIViewController {
     
     
     //MARK: - Customize Header  for the TableView
-    func configureHeaderView()  {
-        let  headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: view.bounds.height / 2.5))
+    func configureHeaderView(currentDay: CurrentDay)  {
+        let  headerView = HeaderView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: view.bounds.height / 2.5), currentDay: currentDay)
         tableView.tableHeaderView = headerView
         
     }
+    
+    //MARK: - Rx binding on TableView
+    
+    func bindTableView() {
+       // cityViewModel.weatherResponse.bind(to: tableView.rx.items)
+    }
 }
+
 
 //MARK: - Extension for table View Functions
 extension HomeViewController : UITableViewDelegate, UITableViewDataSource {

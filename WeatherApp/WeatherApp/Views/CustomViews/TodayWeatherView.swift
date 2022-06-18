@@ -9,6 +9,8 @@ import UIKit
 
 class TodayWeatherView: UIView {
     
+    public var currentDay : CurrentDay?
+    
     //MARK: - Vars
     private let todayLabel : UILabel = {
         let label =  UILabel()
@@ -21,7 +23,7 @@ class TodayWeatherView: UIView {
         return label
     }()
     
-    private let tempLabel : UILabel = {
+     let tempLabel : UILabel = {
         let label =  UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -32,7 +34,7 @@ class TodayWeatherView: UIView {
         return label
     }()
     
-    private let stateLabel : UILabel = {
+    let stateLabel : UILabel = {
         let label =  UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.numberOfLines = 1
@@ -76,7 +78,7 @@ class TodayWeatherView: UIView {
         return stackView
     }()
     
-    public let collectionView : UICollectionView = {
+    private let collectionView : UICollectionView = {
         // Layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
@@ -95,7 +97,7 @@ class TodayWeatherView: UIView {
     }()
 
     //MARK: - Initlizaers
-    override init(frame: CGRect) {
+   override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .systemBlue
         self.clipsToBounds = true
@@ -105,6 +107,9 @@ class TodayWeatherView: UIView {
         
         collectionView.delegate = self
         collectionView.dataSource = self
+       
+       
+
     }
     
     required init?(coder: NSCoder) {
@@ -122,6 +127,9 @@ class TodayWeatherView: UIView {
         
         addSubview(hStackView)
         addSubview(collectionView)
+        
+        tempLabel.text = "\(currentDay?.temp)ºF"
+        stateLabel.text = currentDay?.state
         
     }
     
@@ -158,6 +166,13 @@ extension TodayWeatherView: UICollectionViewDelegate, UICollectionViewDataSource
         else {
             print("can't get category cell")
             return UICollectionViewCell()
+        }
+        if indexPath.row == 0 {
+            cell.configureCell(model: currentDay?.windSpeed ?? 0.0)
+        }else if indexPath.row == 1 {
+            cell.configureCell(model: currentDay?.humindty ?? 0.0)
+        }else if indexPath.row == 2 {
+            cell.configureCell(model: currentDay?.pressure ?? 0.0)
         }
 
         return cell

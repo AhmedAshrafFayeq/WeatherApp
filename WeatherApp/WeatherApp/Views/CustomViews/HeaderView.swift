@@ -40,13 +40,18 @@ class HeaderView: UIView {
     }()
     
     //MARK: - Initlizaers
-    override init(frame: CGRect) {
+    init(frame: CGRect, currentDay: CurrentDay) {
         super.init(frame: frame)
         backgroundColor = .systemBackground
         self.clipsToBounds = true
         setupLayouts()
         configureConstraints()
-
+        
+        currentWeatherView.currentDay = currentDay
+        countryLabel.text = currentDay.countryName
+        dateLabel.text = currentDay.date
+        currentWeatherView.tempLabel.text = "\(currentDay.temp)ºF"
+        currentWeatherView.stateLabel.text = currentDay.state
     }
     
     required init?(coder: NSCoder) {

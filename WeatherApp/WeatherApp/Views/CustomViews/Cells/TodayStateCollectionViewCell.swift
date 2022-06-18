@@ -75,9 +75,9 @@ class TodayStateCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Cell Configuration with Models
     
-    public func configureCell() {
+    public func configureCell(model : Double) {
         
-        
+        tempLabel.text = "\(model)"
         
     }
 }

@@ -5,12 +5,17 @@ target 'WeatherApp' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for WeatherApp
 
-	pod 'Alamofire'
+def default_pods
+    	pod 'Alamofire'
 	pod 'lottie-ios'
         pod 'RxSwift'
 	pod 'RxCocoa'
+end
+
+  # Pods for WeatherApp
+	default_pods
+	
 	
 
   target 'WeatherAppTests' do
@@ -21,5 +26,13 @@ target 'WeatherApp' do
   target 'WeatherAppUITests' do
     # Pods for testing
   end
+
+target 'WeatherApp Prod' do
+    default_pods
+end
+
+target 'WeatherApp Stag' do
+    default_pods
+end
 
 end
