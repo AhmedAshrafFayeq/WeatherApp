@@ -6,15 +6,21 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class HourSectionView: UIView {
     
     //MARK: - Vars
+    
+    var viewModel: CityViewModel?
+    var disposeBag = DisposeBag()
+    
     private let collectionView : UICollectionView = {
         // Layout
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
-        layout.itemSize = CGSize(width: 140, height: 300)
+        layout.itemSize = CGSize(width: 140, height: 130)
         
         let collectionView = UICollectionView(frame: .zero,  collectionViewLayout: layout)
         collectionView.register(HourCollectionViewCell.self, forCellWithReuseIdentifier: HourCollectionViewCell.identifier)
@@ -25,21 +31,27 @@ class HourSectionView: UIView {
     
     
     //MARK: - Initlizers
-    override init(frame: CGRect) {
+    init(frame: CGRect, viewModel: CityViewModel) {
         super.init(frame: frame)
-        
+        self.viewModel = viewModel
+        bindNewElements()
         configureView ()
         
         addSubview(collectionView)
-        collectionView.delegate = self
-        collectionView.dataSource = self
         
     }
     
-    
-    
     required init?(coder: NSCoder) {
         fatalError()
+    }
+    
+    func bindNewElements(){
+        
+        viewModel?.currentDayHoursBehaviourSubject.bind(to: collectionView.rx.items(cellIdentifier: HourCollectionViewCell.identifier, cellType: HourCollectionViewCell.self)) { row, item, cell in
+            
+            cell.configureCell(model: item)            
+        }.disposed(by: disposeBag)
+        
     }
     
     

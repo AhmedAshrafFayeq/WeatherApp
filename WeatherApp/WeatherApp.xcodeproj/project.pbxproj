@@ -118,6 +118,7 @@
 		2DD8C4B2285DFB54005D4B5D /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D966291285D1B44002124AC /* BaseAPI.swift */; };
 		2DD8C4B3285DFB54005D4B5D /* BaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D966291285D1B44002124AC /* BaseAPI.swift */; };
 		2DF1FF27285E38110029160F /* CurrentDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF26285E38110029160F /* CurrentDay.swift */; };
+		2DF1FF29285E46D20029160F /* CurrentDayHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF28285E46D20029160F /* CurrentDayHours.swift */; };
 		306C2FB993C477DC45845B24 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */; };
 		3B65444879E2D10104474C15 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */; };
 		AFE2F9E9A482CFE33016A747 /* Pods_WeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE138A150932E9C9BB2CB8F /* Pods_WeatherAppTests.framework */; };
@@ -185,6 +186,7 @@
 		2DD8C494285D7193005D4B5D /* DataFormatter+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataFormatter+Ext.swift"; sourceTree = "<group>"; };
 		2DD8C49A285DDDF2005D4B5D /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		2DF1FF26285E38110029160F /* CurrentDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDay.swift; sourceTree = "<group>"; };
+		2DF1FF28285E46D20029160F /* CurrentDayHours.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentDayHours.swift; sourceTree = "<group>"; };
 		30990E993633912187243449 /* Pods-WeatherApp-WeatherApp Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp-WeatherApp Prod.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp-WeatherApp Prod/Pods-WeatherApp-WeatherApp Prod.release.xcconfig"; sourceTree = "<group>"; };
 		4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593A7CFE920F26318A513183 /* Pods-WeatherApp.releasestag.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.releasestag.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.releasestag.xcconfig"; sourceTree = "<group>"; };
@@ -315,6 +317,7 @@
 			children = (
 				2D9662A1285D3917002124AC /* WeatherResponse.swift */,
 				2DF1FF26285E38110029160F /* CurrentDay.swift */,
+				2DF1FF28285E46D20029160F /* CurrentDayHours.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 				2D9662A2285D3917002124AC /* WeatherResponse.swift in Sources */,
 				2DD8C47B285D4DCD005D4B5D /* HourCollectionViewCell.swift in Sources */,
 				2DD8C46E285D480C005D4B5D /* TodayStateCollectionViewCell.swift in Sources */,
+				2DF1FF29285E46D20029160F /* CurrentDayHours.swift in Sources */,
 				2DD8C475285D4D41005D4B5D /* HourSectionView.swift in Sources */,
 				2DD8C487285D5559005D4B5D /* DayTableViewCell.swift in Sources */,
 				2DD8C43F285D421B005D4B5D /* HomeViewController.swift in Sources */,

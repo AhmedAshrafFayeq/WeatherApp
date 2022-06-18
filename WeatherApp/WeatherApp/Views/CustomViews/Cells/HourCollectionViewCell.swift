@@ -92,9 +92,9 @@ class HourCollectionViewCell: UICollectionViewCell {
     }
     
     //MARK: - Cell Configuration with Models
-    public func configureCell() {
-        
-        
+    public func configureCell(model: CurrentConditions) {
+        timeLabel.text = model.datetime
+        tempLabel.text = "\(model.temp)"
         
     }
     
