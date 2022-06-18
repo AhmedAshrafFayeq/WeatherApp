@@ -16,14 +16,14 @@ extension WeatherNetworking: TargetType{
     var baseURL: String {
         switch self {
         default:
-            return ServerConfig.shared.baseURL
+            return ServerConfig.shared.url ?? ""
         }
     }
 
     var path: String {
         switch self {
         case .getWeatherData:
-            return "/users"
+            return ""
         }
     }
     
