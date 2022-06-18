@@ -62,8 +62,8 @@
             filePath = "WeatherApp/Views/CustomViews/Cells/HourCollectionViewCell.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
             landmarkName = "configureCell(model:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -81,6 +81,22 @@
             startingLineNumber = "52"
             endingLineNumber = "52"
             landmarkName = "bindNewElements()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7B18D58E-806A-4F4B-B303-575BE8074CC3"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "WeatherApp/Views/CustomViews/HourSectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "init(frame:viewModel:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

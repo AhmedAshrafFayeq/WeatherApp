@@ -18,7 +18,6 @@ class HourCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.textColor = .label
         label.textAlignment = .center
-        label.text = "10 AM"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
     }()
@@ -27,7 +26,7 @@ class HourCollectionViewCell: UICollectionViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.image = UIImage(systemName: "sun.min" , withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))
-        image.backgroundColor = .systemBackground
+        image.tintColor = .white
         image.layer.cornerRadius = 10
         image.translatesAutoresizingMaskIntoConstraints = false
         
@@ -40,7 +39,6 @@ class HourCollectionViewCell: UICollectionViewCell {
         label.numberOfLines = 1
         label.textColor = .label
         label.textAlignment = .center
-        label.text = "40%"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
     }()
@@ -93,9 +91,20 @@ class HourCollectionViewCell: UICollectionViewCell {
     
     //MARK: - Cell Configuration with Models
     public func configureCell(model: CurrentConditions) {
-        timeLabel.text = model.datetime
+        timeLabel.text = getHourDiscription(date:model.datetime)
         tempLabel.text = "\(model.temp)"
+        tempImageView.image = UIImage(systemName:  Icons.getWeatherIcon(icon: model.icon ?? "cloud.sun.bolt.fill"), withConfiguration: UIImage.SymbolConfiguration(pointSize: 30))
+    }
+    
+    private func getHourDiscription(date: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "hh:mm:ss"
+        let myDate = dateFormatter.date(from: date) ?? Date()
+
+        dateFormatter.dateFormat = "h a"
+        let somedateString = dateFormatter.string(from: myDate)
         
+        return somedateString
     }
     
 }

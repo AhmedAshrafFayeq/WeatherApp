@@ -61,7 +61,7 @@ class TodayWeatherView: UIView {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.clipsToBounds = true
-        image.tintColor = .systemBackground
+        image.tintColor = .white
         image.image = UIImage(systemName: "sun.min" , withConfiguration: UIImage.SymbolConfiguration(pointSize: 60))
         image.translatesAutoresizingMaskIntoConstraints = false
         
@@ -128,7 +128,10 @@ class TodayWeatherView: UIView {
         addSubview(hStackView)
         addSubview(collectionView)
         
-        tempLabel.text = "\(currentDay?.temp)ºF"
+        if let temp = currentDay?.temp {
+            tempLabel.text = "\(temp) ºF"
+        }
+        stateImageView.image = UIImage(systemName:  Icons.getWeatherIcon(icon: currentDay?.icon ?? "sun.min.fill"), withConfiguration: UIImage.SymbolConfiguration(pointSize: 90))
         stateLabel.text = currentDay?.state
         
     }
@@ -168,25 +171,25 @@ extension TodayWeatherView: UICollectionViewDelegate, UICollectionViewDataSource
             return UICollectionViewCell()
         }
         if indexPath.row == 0 {
-            cell.configureCell(model: currentDay?.windSpeed ?? 0.0)
+            cell.configureCell(model: "\(currentDay?.windSpeed ?? 0.0)mi/hr", icon: .wind)
         }else if indexPath.row == 1 {
-            cell.configureCell(model: currentDay?.humindty ?? 0.0)
+            cell.configureCell(model: "\(currentDay?.humindty ?? 0.0)%", icon: .humidity )
         }else if indexPath.row == 2 {
-            cell.configureCell(model: currentDay?.pressure ?? 0.0)
+            cell.configureCell(model: "\(currentDay?.pressure ?? 0.0)%", icon: .pressure)
         }
 
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 70, height: 100)
+        return CGSize(width: 90, height: 90)
     }
     
 
     // Handle CollectionViewCells allignment (Center)
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         
-        let totalCellWidth = 70 * 3
+        let totalCellWidth = 90 * 3
         let totalSpacingWidth = 9 * (3 - 1)
         
         let leftInset = (collectionView.frame.width - CGFloat(totalCellWidth + totalSpacingWidth)) / 2

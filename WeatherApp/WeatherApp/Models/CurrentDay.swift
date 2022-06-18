@@ -8,6 +8,6 @@
 import Foundation
 
 struct CurrentDay {
-    let countryName, date, state: String
+    let countryName, date, state, icon: String
     let windSpeed, humindty, pressure, temp: Double
 }
