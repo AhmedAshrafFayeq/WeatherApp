@@ -13,9 +13,8 @@ import RxCocoa
 class HomeViewController: UIViewController {
     
     //MARK: - Vars
-    var cityViewModel = CityViewModel()
-    var disposeBag = DisposeBag()
-    
+    var cityViewModel   = CityViewModel()
+    let disposeBag      = DisposeBag()
     private let searchBar : UISearchBar = {
         let search = UISearchBar()
         search.placeholder = "Seacrh..."
@@ -23,11 +22,14 @@ class HomeViewController: UIViewController {
         return search
     }()
     
+    var activityIndicatorView: ActivityIndicatorView!
+    
     private let tableView : UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
         table.backgroundColor = .clear
         table.register(DayTableViewCell.self, forCellReuseIdentifier: DayTableViewCell.identifier)
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.isHidden = true
         return table
     }()
     
@@ -36,6 +38,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         configureView()
         getData()
+        bindTableView()
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,31 +49,36 @@ class HomeViewController: UIViewController {
     //MARK: - View Configuration
     private func configureView() {
         view.addSubview(tableView)
+        activityIndicatorView = ActivityIndicatorView(title: "Processing...", center: self.view.center)
+        view.addSubview(self.activityIndicatorView.getViewActivityIndicator())
         view.backgroundColor = .systemBackground
         configureNavBar()
         tableView.delegate = self
-        tableView.dataSource = self
     }
     
     private func getData() {
+        activityIndicatorView.startAnimating()
         cityViewModel.getData { [weak self] isSuccess in
             if isSuccess {
                 guard let timezone = self?.cityViewModel.weatherResponse?.timezone,
-                        let temp = self?.cityViewModel.weatherResponse?.days.first?.temp,
-                        let state = self?.cityViewModel.weatherResponse?.days.first?.conditions,
-                        let windSpeed = self?.cityViewModel.weatherResponse?.days.first?.windspeed,
-                        let humindty = self?.cityViewModel.weatherResponse?.days.first?.humidity,
+                      let temp = self?.cityViewModel.weatherResponse?.days.first?.temp,
+                      let state = self?.cityViewModel.weatherResponse?.days.first?.conditions,
+                      let windSpeed = self?.cityViewModel.weatherResponse?.days.first?.windspeed,
+                      let humindty = self?.cityViewModel.weatherResponse?.days.first?.humidity,
                       let pressure = self?.cityViewModel.weatherResponse?.days.first?.pressure,
-                let date = self?.cityViewModel.configureWithData(date: self?.cityViewModel.weatherResponse?.days[0].datetime ?? "") else {
+                      let icon = self?.cityViewModel.weatherResponse?.days.first?.icon,
+                      let date = self?.cityViewModel.configureWithData(date: self?.cityViewModel.weatherResponse?.days[0].datetime ?? "") else {
                           print("Cant create Object correctly ")
                           return
                       }
                 
-                let currentDay = CurrentDay(countryName: timezone, date: date, state: state, windSpeed: windSpeed, humindty: humindty, pressure: pressure, temp: temp)
-
+                let currentDay = CurrentDay(countryName: timezone, date: date, state: state, icon: icon, windSpeed: windSpeed, humindty: humindty, pressure: pressure, temp: temp)
+                
                 self?.configureHeaderView(currentDay: currentDay)
                 DispatchQueue.main.async {
                     self?.tableView.reloadData()
+                    self?.tableView.isHidden = false
+                    self?.activityIndicatorView.stopAnimating()
                 }
             }
         }
@@ -100,36 +108,36 @@ class HomeViewController: UIViewController {
     //MARK: - Rx binding on TableView
     
     func bindTableView() {
-       // cityViewModel.weatherResponse.bind(to: tableView.rx.items)
+        cityViewModel.currentDayBehaviourSubject.bind(to: tableView.rx.items(cellIdentifier: DayTableViewCell.identifier, cellType: DayTableViewCell.self)){ row, item, cell in
+            cell.configureCell(model: item)
+        }.disposed(by: disposeBag)
+        
+        // Did Tap on a specific day
+        
+        tableView.rx.itemSelected.subscribe(onNext: { [weak self] indexPath in
+            self?.tableView.deselectRow(at: indexPath, animated: true)
+            let dayDetailsVC = DayPreviewViewController()
+            dayDetailsVC.currentDay = self?.cityViewModel.weatherResponse?.days[indexPath.row]
+            dayDetailsVC.currentDayHoursBehaviourSubject.on(.next(self?.cityViewModel.weatherResponse?.days[indexPath.row].hours ?? []))
+            
+            self?.navigationController?.pushViewController(dayDetailsVC, animated: true)
+            
+        }).disposed(by: disposeBag)
     }
 }
 
 
 //MARK: - Extension for table View Functions
-extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell =  tableView.dequeueReusableCell(withIdentifier: DayTableViewCell.identifier, for: indexPath) as? DayTableViewCell else {
-            print("can't get category cell")
-            return UITableViewCell()
-        }
-
-
-        return cell
-    }
+extension HomeViewController : UITableViewDelegate {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
         
     }
     
-    
     // set the height for section
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        130
+        120
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -138,11 +146,9 @@ extension HomeViewController : UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        
-        let sectionView = HourSectionView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 150))
+        let sectionView = HourSectionView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.width, height: 120), viewModel: self.cityViewModel)
         
         return sectionView
-        
         
     }
     
