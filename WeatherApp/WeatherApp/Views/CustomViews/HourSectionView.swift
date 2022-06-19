@@ -36,7 +36,7 @@ class HourSectionView: UIView {
         self.viewModel = viewModel
         bindNewElements()
         configureView ()
-        
+        setupView()
         addSubview(collectionView)
         
     }

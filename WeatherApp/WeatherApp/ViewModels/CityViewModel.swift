@@ -18,6 +18,8 @@ class CityViewModel {
     let currentDayHoursBehaviourSubject = BehaviorSubject(value: [CurrentConditions]())
     let currentDayBehaviourSubject      = BehaviorSubject(value: [CurrentConditions]())
     
+//    let realm = try! Realm() -->> TODO
+    
     //MARK: - Methods
     func getData(completion: @escaping (Bool)->(Void)) {
         weatherAPI.getData(completion: { [weak self] (result) in
@@ -49,5 +51,16 @@ class CityViewModel {
         
         return somedateString
     }
+    
+    
+//    func saveDataInRealmDatabase(response: WeatherResponse) {
+//        let weatherRealmModel = WeatherAPIModel()
+//        weatherRealmModel.timezone = response.timezone
+//        
+//        try! realm.write({
+//            realm.add(weatherRealmModel)
+//        })
+//    }
+
     
 }

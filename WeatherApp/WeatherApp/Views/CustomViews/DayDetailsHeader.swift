@@ -92,7 +92,7 @@ class DayDetailsHeader: UIView {
             tempLabel.leadingAnchor.constraint(equalTo: leadingAnchor,constant: 20),
             tempLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor,constant: 10),
             
-            minMaxLabel.topAnchor.constraint(equalTo: tempLabel.bottomAnchor,constant: 4),
+            minMaxLabel.topAnchor.constraint(equalTo: tempLabel.bottomAnchor,constant: 16),
             minMaxLabel.leadingAnchor.constraint(equalTo: tempLabel.leadingAnchor),
             
             titleLabel.leadingAnchor.constraint(equalTo: tempLabel.leadingAnchor),

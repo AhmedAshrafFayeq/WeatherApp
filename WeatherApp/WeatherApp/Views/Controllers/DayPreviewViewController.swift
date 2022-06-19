@@ -25,13 +25,6 @@ class DayPreviewViewController: BaseViewController {
         return view
     }()
     
-    private let scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .clear
-        return scrollView
-    }()
-    
     private let collectionView : UICollectionView = {
         // Layout
         let layout = UICollectionViewFlowLayout()
@@ -43,7 +36,7 @@ class DayPreviewViewController: BaseViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         collectionView.layer.cornerRadius = 25
         collectionView.layer.masksToBounds = true
-        
+        collectionView.setupView()
         return collectionView
     }()
     
@@ -52,9 +45,8 @@ class DayPreviewViewController: BaseViewController {
         super.viewDidLoad()
         view.backgroundColor = .clear
         subView.configureViewData(currentDay: currentDay!)
-        view.addSubview(scrollView)
-        scrollView.addSubview(subView)
-        scrollView.addSubview(collectionView)
+        view.addSubview(subView)
+        view.addSubview(collectionView)
         configureConstraints()
         bindNewElements()
         configureHeaderView()
@@ -63,27 +55,23 @@ class DayPreviewViewController: BaseViewController {
     
     //MARK: - Customize Header  for the TableView
     func configureHeaderView()  {
-        let  headerView = DayDetailsHeader(frame: CGRect(x: 8, y: 0, width: view.bounds.width - 16, height: 230), currentDay: currentDay!)
-        scrollView.addSubview(headerView)
+        let  headerView = DayDetailsHeader(frame: CGRect(x: 16, y: view.bounds.height / 6, width: view.bounds.width - 32, height: 230), currentDay: currentDay!)
+        view.addSubview(headerView)
+        headerView.setupView()
         subView = headerView
     }
     
     private func configureConstraints(){
         NSLayoutConstraint.activate([
             
-            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-            
             subView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             subView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            subView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            subView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.bounds.height / 6),
             subView.heightAnchor.constraint(equalToConstant: 230),
             
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            collectionView.topAnchor.constraint(equalTo: subView.bottomAnchor,constant: 32),
+            collectionView.topAnchor.constraint(equalTo: subView.bottomAnchor,constant: 48),
             collectionView.heightAnchor.constraint(equalToConstant: 160)
         ])
     }

@@ -167,6 +167,15 @@
 		2DF1FF79285F52480029160F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF76285F52480029160F /* BaseViewController.swift */; };
 		2DF1FF7A285F52480029160F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF76285F52480029160F /* BaseViewController.swift */; };
 		2DF1FF7B285F52480029160F /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF76285F52480029160F /* BaseViewController.swift */; };
+		2DF1FF82285F792B0029160F /* CurrentDayHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF28285E46D20029160F /* CurrentDayHours.swift */; };
+		2DF1FF83285F792B0029160F /* CurrentDayHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF28285E46D20029160F /* CurrentDayHours.swift */; };
+		2DF1FF84285F792C0029160F /* CurrentDayHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF28285E46D20029160F /* CurrentDayHours.swift */; };
+		2DF1FF85285F792D0029160F /* CurrentDayHours.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF28285E46D20029160F /* CurrentDayHours.swift */; };
+		2DF1FF87285F7E7A0029160F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF86285F7E7A0029160F /* UIView+Ext.swift */; };
+		2DF1FF88285F7E7A0029160F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF86285F7E7A0029160F /* UIView+Ext.swift */; };
+		2DF1FF89285F7E7A0029160F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF86285F7E7A0029160F /* UIView+Ext.swift */; };
+		2DF1FF8A285F7E7A0029160F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF86285F7E7A0029160F /* UIView+Ext.swift */; };
+		2DF1FF8B285F7E7A0029160F /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF86285F7E7A0029160F /* UIView+Ext.swift */; };
 		306C2FB993C477DC45845B24 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */; };
 		3B65444879E2D10104474C15 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */; };
 		AFE2F9E9A482CFE33016A747 /* Pods_WeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE138A150932E9C9BB2CB8F /* Pods_WeatherAppTests.framework */; };
@@ -247,6 +256,7 @@
 		2DF1FF69285F380D0029160F /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		2DF1FF70285F4E6D0029160F /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2DF1FF76285F52480029160F /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		2DF1FF86285F7E7A0029160F /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		30990E993633912187243449 /* Pods-WeatherApp-WeatherApp Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp-WeatherApp Prod.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp-WeatherApp Prod/Pods-WeatherApp-WeatherApp Prod.release.xcconfig"; sourceTree = "<group>"; };
 		4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593A7CFE920F26318A513183 /* Pods-WeatherApp.releasestag.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.releasestag.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.releasestag.xcconfig"; sourceTree = "<group>"; };
@@ -505,6 +515,7 @@
 			children = (
 				2DD8C494285D7193005D4B5D /* DataFormatter+Ext.swift */,
 				2DF1FF76285F52480029160F /* BaseViewController.swift */,
+				2DF1FF86285F7E7A0029160F /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -948,6 +959,7 @@
 				2DF1FF40285EA5A40029160F /* DayPreviewViewController.swift in Sources */,
 				2DF1FF3A285E8CF30029160F /* CollectionViewTableViewCell.swift in Sources */,
 				2DD8C4AC285DFB4E005D4B5D /* TargetType.swift in Sources */,
+				2DF1FF82285F792B0029160F /* CurrentDayHours.swift in Sources */,
 				2DD8C448285D430B005D4B5D /* Constants.swift in Sources */,
 				2DD8C496285D7193005D4B5D /* DataFormatter+Ext.swift in Sources */,
 				2DD8C44C285D4312005D4B5D /* WeatherResponse.swift in Sources */,
@@ -956,6 +968,7 @@
 				2DD8C4B0285DFB52005D4B5D /* BaseAPI.swift in Sources */,
 				2DD8C4A8285DFB4A005D4B5D /* BaseResponse.swift in Sources */,
 				2DD8C49C285DDDF2005D4B5D /* OnboardingViewController.swift in Sources */,
+				2DF1FF88285F7E7A0029160F /* UIView+Ext.swift in Sources */,
 				2DD8C488285D5559005D4B5D /* DayTableViewCell.swift in Sources */,
 				2DD8C48F285D6CF0005D4B5D /* CityViewModel.swift in Sources */,
 				2D966254285D0C41002124AC /* AppDelegate.swift in Sources */,
@@ -984,6 +997,7 @@
 				2DF1FF41285EA5A40029160F /* DayPreviewViewController.swift in Sources */,
 				2DF1FF3B285E8CF40029160F /* CollectionViewTableViewCell.swift in Sources */,
 				2DD8C4AD285DFB4F005D4B5D /* TargetType.swift in Sources */,
+				2DF1FF83285F792B0029160F /* CurrentDayHours.swift in Sources */,
 				2DD8C449285D430C005D4B5D /* Constants.swift in Sources */,
 				2DD8C497285D7193005D4B5D /* DataFormatter+Ext.swift in Sources */,
 				2DD8C44D285D4313005D4B5D /* WeatherResponse.swift in Sources */,
@@ -992,6 +1006,7 @@
 				2DD8C4B1285DFB53005D4B5D /* BaseAPI.swift in Sources */,
 				2DD8C4A9285DFB4A005D4B5D /* BaseResponse.swift in Sources */,
 				2DD8C49D285DDDF2005D4B5D /* OnboardingViewController.swift in Sources */,
+				2DF1FF89285F7E7A0029160F /* UIView+Ext.swift in Sources */,
 				2DD8C489285D5559005D4B5D /* DayTableViewCell.swift in Sources */,
 				2DD8C490285D6CF0005D4B5D /* CityViewModel.swift in Sources */,
 				2D966266285D0D7A002124AC /* AppDelegate.swift in Sources */,
@@ -1029,6 +1044,7 @@
 				2DF1FF3F285EA5A40029160F /* DayPreviewViewController.swift in Sources */,
 				2DF1FF29285E46D20029160F /* CurrentDayHours.swift in Sources */,
 				2DD8C475285D4D41005D4B5D /* HourSectionView.swift in Sources */,
+				2DF1FF87285F7E7A0029160F /* UIView+Ext.swift in Sources */,
 				2DD8C487285D5559005D4B5D /* DayTableViewCell.swift in Sources */,
 				2DD8C43F285D421B005D4B5D /* HomeViewController.swift in Sources */,
 				2DCAD26D285D07B400D3F5A2 /* AppDelegate.swift in Sources */,
@@ -1055,6 +1071,7 @@
 			files = (
 				2DD8C491285D6CF0005D4B5D /* CityViewModel.swift in Sources */,
 				2DD8C444285D4303005D4B5D /* ServerConfig.swift in Sources */,
+				2DF1FF84285F792C0029160F /* CurrentDayHours.swift in Sources */,
 				2DD8C48A285D5559005D4B5D /* DayTableViewCell.swift in Sources */,
 				2DF1FF48285EC7B70029160F /* ActivityIndicatorView.swift in Sources */,
 				2DF1FF7A285F52480029160F /* BaseViewController.swift in Sources */,
@@ -1075,6 +1092,7 @@
 				2DF1FF32285E7F5F0029160F /* DayDetailsHeader.swift in Sources */,
 				2DD8C4AA285DFB4A005D4B5D /* BaseResponse.swift in Sources */,
 				2DF1FF57285F2A510029160F /* CurrentDay.swift in Sources */,
+				2DF1FF8A285F7E7A0029160F /* UIView+Ext.swift in Sources */,
 				2DD8C4A6285DFB45005D4B5D /* WeatherNetworking.swift in Sources */,
 				2DF1FF3C285E8CF40029160F /* CollectionViewTableViewCell.swift in Sources */,
 				2DD8C46B285D4585005D4B5D /* TodayWeatherView.swift in Sources */,
@@ -1095,6 +1113,7 @@
 				2DF1FF43285EA5A40029160F /* DayPreviewViewController.swift in Sources */,
 				2DF1FF3D285E8CF40029160F /* CollectionViewTableViewCell.swift in Sources */,
 				2DD8C4AF285DFB50005D4B5D /* TargetType.swift in Sources */,
+				2DF1FF85285F792D0029160F /* CurrentDayHours.swift in Sources */,
 				2DD8C44B285D430D005D4B5D /* Constants.swift in Sources */,
 				2DD8C499285D7193005D4B5D /* DataFormatter+Ext.swift in Sources */,
 				2DD8C44F285D4314005D4B5D /* WeatherResponse.swift in Sources */,
@@ -1103,6 +1122,7 @@
 				2DD8C4B3285DFB54005D4B5D /* BaseAPI.swift in Sources */,
 				2DD8C4AB285DFB4B005D4B5D /* BaseResponse.swift in Sources */,
 				2DD8C49F285DDDF3005D4B5D /* OnboardingViewController.swift in Sources */,
+				2DF1FF8B285F7E7A0029160F /* UIView+Ext.swift in Sources */,
 				2DD8C48B285D5559005D4B5D /* DayTableViewCell.swift in Sources */,
 				2DD8C492285D6CF0005D4B5D /* CityViewModel.swift in Sources */,
 				2DCAD28E285D07BB00D3F5A2 /* WeatherAppUITests.swift in Sources */,

@@ -42,6 +42,7 @@ class HomeViewController: BaseViewController {
         configureView()
         getData()
         bindTableView()
+        setupDataUpdate()
     }
     
     override func viewDidLayoutSubviews() {
@@ -99,6 +100,19 @@ class HomeViewController: BaseViewController {
             }
         }
     }
+    
+    
+    //MARK: - recall api
+    
+    func setupDataUpdate() {
+        Timer.scheduledTimer(timeInterval: 60*60, target: self, selector: #selector(recallAPI), userInfo: nil, repeats: true)
+    }
+    
+    @objc func recallAPI()
+    {
+       getData()
+    }
+    
 
     //MARK: - NavBar Configuration
     func configureNavBar()  {
@@ -137,11 +151,6 @@ class HomeViewController: BaseViewController {
         }).disposed(by: disposeBag)
     }
     
-    func handleAuthentication() {
-        if let  location = UserDefaults.standard.value(forKey: "currentLocation") {
-            
-        }
-    }
 }
 
 

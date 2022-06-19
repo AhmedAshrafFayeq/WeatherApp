@@ -8,6 +8,7 @@
 import Foundation
 import Lottie
 
+//TODO: - Animation with Lottie
 struct LottieView {
 
 }

@@ -20,12 +20,12 @@
  
  
 * Network Layer
- - Alamofire
+ - Alamofire with Generics Codable Models
 
+* Unit Testing
 
-* Unit Testin
-
-* Intiative UI/UX
+* Presentable Intutative UI/UX
 
 * Multiple Environments (Development, Production, Staging)
 
+* Update Weather Info frequently in the background

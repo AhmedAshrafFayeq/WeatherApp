@@ -37,10 +37,10 @@ class TodayWeatherView: UIView {
     let stateLabel : UILabel = {
         let label =  UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.numberOfLines = 1
+        label.numberOfLines = 2
         label.textColor = .white
         label.textAlignment = .center
-        label.text =  "Clouds"
+        label.text =  "Cloudy"
         label.font = .systemFont(ofSize: 14, weight: .regular)
         return label
     }()
@@ -101,15 +101,12 @@ class TodayWeatherView: UIView {
         super.init(frame: frame)
         backgroundColor = .systemBlue
         self.clipsToBounds = true
-    
+        setupView()
         setupLayouts()
         configureConstraints()
-        
+
         collectionView.delegate = self
         collectionView.dataSource = self
-       
-       
-
     }
     
     required init?(coder: NSCoder) {
@@ -117,6 +114,7 @@ class TodayWeatherView: UIView {
     }
     
     //MARK: - Layouts and Constraints
+    
     private func setupLayouts(){
         
         addSubview(todayLabel)

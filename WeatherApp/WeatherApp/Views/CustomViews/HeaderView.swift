@@ -71,14 +71,14 @@ class HeaderView: UIView {
         
         NSLayoutConstraint.activate([
             
-            countryLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 10),
+            countryLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 32),
             countryLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
             
             dateLabel.topAnchor.constraint(equalTo: countryLabel.bottomAnchor, constant: 4),
             dateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             
-            currentWeatherView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 10),
+            currentWeatherView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor, constant: 48),
             currentWeatherView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor,constant: 20),
             currentWeatherView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor,constant: -20),
             currentWeatherView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20),
