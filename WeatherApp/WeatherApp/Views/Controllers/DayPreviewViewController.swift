@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class DayPreviewViewController: UIViewController {
+class DayPreviewViewController: BaseViewController {
     
     //MARK: - Vars
     var currentDay: CurrentConditions?
@@ -21,14 +21,14 @@ class DayPreviewViewController: UIViewController {
         let view = DayDetailsHeader()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.layer.cornerRadius = 10
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .clear
         return view
     }()
     
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.backgroundColor = .systemBackground
+        scrollView.backgroundColor = .clear
         return scrollView
     }()
     
@@ -50,7 +50,7 @@ class DayPreviewViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .clear
         subView.configureViewData(currentDay: currentDay!)
         view.addSubview(scrollView)
         scrollView.addSubview(subView)
@@ -63,7 +63,7 @@ class DayPreviewViewController: UIViewController {
     
     //MARK: - Customize Header  for the TableView
     func configureHeaderView()  {
-        let  headerView = DayDetailsHeader(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 230), currentDay: currentDay!)
+        let  headerView = DayDetailsHeader(frame: CGRect(x: 8, y: 0, width: view.bounds.width - 16, height: 230), currentDay: currentDay!)
         scrollView.addSubview(headerView)
         subView = headerView
     }

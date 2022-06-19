@@ -18,7 +18,7 @@ class NotificationViewModel {
         
         
         // show this notification five seconds from now
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: true)
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 5 * 60, repeats: true)
 
         // choose a random identifier
         let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)

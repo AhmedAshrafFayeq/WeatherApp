@@ -36,7 +36,8 @@ class DayTableViewCell: UITableViewCell {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.image = UIImage(systemName: "sun.min" , withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))
-        image.backgroundColor = .systemBackground
+        image.backgroundColor = .clear
+        image.tintColor = .white
         image.layer.cornerRadius = 10
         image.translatesAutoresizingMaskIntoConstraints = false
         
@@ -60,7 +61,7 @@ class DayTableViewCell: UITableViewCell {
     //MARK: - Life Cycle
     override init(style: UITableViewCell.CellStyle, reuseIdentifier : String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        
+        backgroundColor = .clear
         setupLayouts()
         configureConstraints()
     }

@@ -12,12 +12,10 @@ class BaseViewController: UIViewController {
     let gradiantLayer : CAGradientLayer = {
         let gradiant = CAGradientLayer()
         gradiant.colors = [
-            
-            UIColor(red: 48 / 255.0, green: 231 / 255.0, blue: 273 / 255.0, alpha: 1.0).cgColor,
-            UIColor(red: 0 / 255.0, green: 266 / 255.0, blue: 325 / 255.0, alpha: 1.0).cgColor
+            UIColor.systemBlue.cgColor,
+            UIColor(red: 0.545, green: 0.888, blue: 1, alpha: 1.0).cgColor,
             
         ]
-        
         return gradiant
     }()
     
@@ -27,5 +25,8 @@ class BaseViewController: UIViewController {
         view.layer.addSublayer(gradiantLayer)
     }
     
-    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        gradiantLayer.frame = view.bounds
+    }
 }

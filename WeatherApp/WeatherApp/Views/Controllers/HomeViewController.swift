@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import UserNotifications
 
-class HomeViewController: UIViewController {
+class HomeViewController: BaseViewController {
     
     //MARK: - Vars
     var cityViewModel   = CityViewModel()
@@ -20,8 +20,8 @@ class HomeViewController: UIViewController {
     
     private let searchBar : UISearchBar = {
         let search = UISearchBar()
-        search.placeholder = "Seacrh..."
-        
+        search.placeholder  = "Seacrh..."
+        search.barTintColor = .white
         return search
     }()
     
@@ -106,7 +106,7 @@ class HomeViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "location.fill"), style: .done, target: self, action: nil)
         // set search bar in the middle
         navigationItem.titleView = searchBar
-        navigationController?.navigationBar.tintColor = .systemBlue
+        navigationController?.navigationBar.tintColor = .white
     }
     
     

@@ -42,7 +42,7 @@ class HeaderView: UIView {
     //MARK: - Initlizaers
     init(frame: CGRect, currentDay: CurrentDay) {
         super.init(frame: frame)
-        backgroundColor = .systemBackground
+        backgroundColor = .clear
         self.clipsToBounds = true
         setupLayouts()
         configureConstraints()
