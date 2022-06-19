@@ -9,12 +9,15 @@ import UIKit
 import CoreLocation
 import RxSwift
 import RxCocoa
+import UserNotifications
 
 class HomeViewController: UIViewController {
     
     //MARK: - Vars
     var cityViewModel   = CityViewModel()
     let disposeBag      = DisposeBag()
+    let notificationViewModel = NotificationViewModel()
+    
     private let searchBar : UISearchBar = {
         let search = UISearchBar()
         search.placeholder = "Seacrh..."
@@ -79,7 +82,20 @@ class HomeViewController: UIViewController {
                     self?.tableView.reloadData()
                     self?.tableView.isHidden = false
                     self?.activityIndicatorView.stopAnimating()
+                    self?.requestNotification(title: timezone, body: icon)
                 }
+            }
+        }
+    }
+    
+    func requestNotification(title: String, body: String) {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .badge, .sound]) { (success, error) in
+            if success {
+                print("success ")
+                self.notificationViewModel.createNotification(title: title, body: body)
+            }
+            else {
+                print("error ouccerd ")
             }
         }
     }

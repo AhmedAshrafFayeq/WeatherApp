@@ -152,6 +152,11 @@
 		2DF1FF58285F2A520029160F /* CurrentDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF26285E38110029160F /* CurrentDay.swift */; };
 		2DF1FF5D285F2AA50029160F /* Bundle+unitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF59285F2AA50029160F /* Bundle+unitTest.swift */; };
 		2DF1FF68285F32C60029160F /* CityViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF67285F32C60029160F /* CityViewModelTests.swift */; };
+		2DF1FF6A285F380D0029160F /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF69285F380D0029160F /* NotificationViewModel.swift */; };
+		2DF1FF6B285F380D0029160F /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF69285F380D0029160F /* NotificationViewModel.swift */; };
+		2DF1FF6C285F380D0029160F /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF69285F380D0029160F /* NotificationViewModel.swift */; };
+		2DF1FF6D285F380D0029160F /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF69285F380D0029160F /* NotificationViewModel.swift */; };
+		2DF1FF6E285F380D0029160F /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF69285F380D0029160F /* NotificationViewModel.swift */; };
 		306C2FB993C477DC45845B24 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */; };
 		3B65444879E2D10104474C15 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */; };
 		AFE2F9E9A482CFE33016A747 /* Pods_WeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE138A150932E9C9BB2CB8F /* Pods_WeatherAppTests.framework */; };
@@ -229,6 +234,7 @@
 		2DF1FF53285F25AE0029160F /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
 		2DF1FF59285F2AA50029160F /* Bundle+unitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+unitTest.swift"; sourceTree = "<group>"; };
 		2DF1FF67285F32C60029160F /* CityViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModelTests.swift; sourceTree = "<group>"; };
+		2DF1FF69285F380D0029160F /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 		30990E993633912187243449 /* Pods-WeatherApp-WeatherApp Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp-WeatherApp Prod.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp-WeatherApp Prod/Pods-WeatherApp-WeatherApp Prod.release.xcconfig"; sourceTree = "<group>"; };
 		4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593A7CFE920F26318A513183 /* Pods-WeatherApp.releasestag.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.releasestag.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.releasestag.xcconfig"; sourceTree = "<group>"; };
@@ -476,6 +482,7 @@
 			isa = PBXGroup;
 			children = (
 				2DD8C48D285D6CF0005D4B5D /* CityViewModel.swift */,
+				2DF1FF69285F380D0029160F /* NotificationViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -927,6 +934,7 @@
 				2D966254285D0C41002124AC /* AppDelegate.swift in Sources */,
 				2DD8C482285D54ED005D4B5D /* LottieView.swift in Sources */,
 				2DF1FF46285EC7B70029160F /* ActivityIndicatorView.swift in Sources */,
+				2DF1FF6B285F380D0029160F /* NotificationViewModel.swift in Sources */,
 				2DF1FF55285F2A500029160F /* CurrentDay.swift in Sources */,
 				2D966255285D0C41002124AC /* SceneDelegate.swift in Sources */,
 				2DD8C442285D42FE005D4B5D /* ServerConfig.swift in Sources */,
@@ -961,6 +969,7 @@
 				2D966266285D0D7A002124AC /* AppDelegate.swift in Sources */,
 				2DD8C483285D54EE005D4B5D /* LottieView.swift in Sources */,
 				2DF1FF47285EC7B70029160F /* ActivityIndicatorView.swift in Sources */,
+				2DF1FF6C285F380D0029160F /* NotificationViewModel.swift in Sources */,
 				2DF1FF56285F2A510029160F /* CurrentDay.swift in Sources */,
 				2D966267285D0D7A002124AC /* SceneDelegate.swift in Sources */,
 				2DD8C443285D42FE005D4B5D /* ServerConfig.swift in Sources */,
@@ -1006,6 +1015,7 @@
 				2D966292285D1B45002124AC /* BaseAPI.swift in Sources */,
 				2DD8C462285D449F005D4B5D /* HeaderView.swift in Sources */,
 				2DD8C468285D4585005D4B5D /* TodayWeatherView.swift in Sources */,
+				2DF1FF6A285F380D0029160F /* NotificationViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1024,6 +1034,7 @@
 				2DF1FF4E285ECC430029160F /* WeatherAPIModel.swift in Sources */,
 				2DF1FF5D285F2AA50029160F /* Bundle+unitTest.swift in Sources */,
 				2DF1FF68285F32C60029160F /* CityViewModelTests.swift in Sources */,
+				2DF1FF6D285F380D0029160F /* NotificationViewModel.swift in Sources */,
 				2DD8C47E285D4DCD005D4B5D /* HourCollectionViewCell.swift in Sources */,
 				2DF1FF42285EA5A40029160F /* DayPreviewViewController.swift in Sources */,
 				2DD8C4AE285DFB4F005D4B5D /* TargetType.swift in Sources */,
@@ -1066,6 +1077,7 @@
 				2DCAD28E285D07BB00D3F5A2 /* WeatherAppUITests.swift in Sources */,
 				2DD8C485285D54EF005D4B5D /* LottieView.swift in Sources */,
 				2DF1FF49285EC7B70029160F /* ActivityIndicatorView.swift in Sources */,
+				2DF1FF6E285F380D0029160F /* NotificationViewModel.swift in Sources */,
 				2DF1FF58285F2A520029160F /* CurrentDay.swift in Sources */,
 				2DD8C445285D4304005D4B5D /* ServerConfig.swift in Sources */,
 				2DCAD290285D07BB00D3F5A2 /* WeatherAppUITestsLaunchTests.swift in Sources */,
