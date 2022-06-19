@@ -83,11 +83,7 @@ class HomeViewController: UIViewController {
             }
         }
     }
-    
-    func configureCurrentDay() {
-        
-    }
-    
+
     //MARK: - NavBar Configuration
     func configureNavBar()  {
         // set the right buton to the navBar

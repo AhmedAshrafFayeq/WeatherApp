@@ -18,28 +18,6 @@ class CityViewModel {
     let currentDayHoursBehaviourSubject = BehaviorSubject(value: [CurrentConditions]())
     let currentDayBehaviourSubject      = BehaviorSubject(value: [CurrentConditions]())
     
-    private lazy var dateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        
-        return formatter
-    }()
-    
-    private lazy var dayFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "EEE"
-        return formatter
-    }()
-    
-    private lazy var timeFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "hh a"
-        return formatter
-    }()
-    
-    var date : String {
-        return dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(weatherResponse!.tzoffset)))
-    }
-    
     //MARK: - Methods
     func getData(completion: @escaping (Bool)->(Void)) {
         weatherAPI.getData(completion: { [weak self] (result) in
@@ -59,11 +37,7 @@ class CityViewModel {
             }
         })
     }
-    
-    func dateFormat(offset : Int) -> String{
-         return dateFormatter.string(from: Date(timeIntervalSince1970: TimeInterval(offset)))
-    }
-    
+
     func configureWithData(date: String) -> String {
         
         let dateFormatter = DateFormatter()

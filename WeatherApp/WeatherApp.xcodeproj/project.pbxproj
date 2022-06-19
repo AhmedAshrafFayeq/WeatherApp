@@ -144,6 +144,14 @@
 		2DF1FF4D285ECC430029160F /* WeatherAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF4A285ECC430029160F /* WeatherAPIModel.swift */; };
 		2DF1FF4E285ECC430029160F /* WeatherAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF4A285ECC430029160F /* WeatherAPIModel.swift */; };
 		2DF1FF4F285ECC430029160F /* WeatherAPIModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF4A285ECC430029160F /* WeatherAPIModel.swift */; };
+		2DF1FF51285F246B0029160F /* WeatherAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF50285F246B0029160F /* WeatherAPITest.swift */; };
+		2DF1FF54285F25AE0029160F /* Weather.json in Resources */ = {isa = PBXBuildFile; fileRef = 2DF1FF53285F25AE0029160F /* Weather.json */; };
+		2DF1FF55285F2A500029160F /* CurrentDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF26285E38110029160F /* CurrentDay.swift */; };
+		2DF1FF56285F2A510029160F /* CurrentDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF26285E38110029160F /* CurrentDay.swift */; };
+		2DF1FF57285F2A510029160F /* CurrentDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF26285E38110029160F /* CurrentDay.swift */; };
+		2DF1FF58285F2A520029160F /* CurrentDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF26285E38110029160F /* CurrentDay.swift */; };
+		2DF1FF5D285F2AA50029160F /* Bundle+unitTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF59285F2AA50029160F /* Bundle+unitTest.swift */; };
+		2DF1FF68285F32C60029160F /* CityViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF1FF67285F32C60029160F /* CityViewModelTests.swift */; };
 		306C2FB993C477DC45845B24 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */; };
 		3B65444879E2D10104474C15 /* Pods_WeatherApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */; };
 		AFE2F9E9A482CFE33016A747 /* Pods_WeatherAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CE138A150932E9C9BB2CB8F /* Pods_WeatherAppTests.framework */; };
@@ -217,6 +225,10 @@
 		2DF1FF3E285EA5A40029160F /* DayPreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayPreviewViewController.swift; sourceTree = "<group>"; };
 		2DF1FF44285EC7B70029160F /* ActivityIndicatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicatorView.swift; sourceTree = "<group>"; };
 		2DF1FF4A285ECC430029160F /* WeatherAPIModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPIModel.swift; sourceTree = "<group>"; };
+		2DF1FF50285F246B0029160F /* WeatherAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAPITest.swift; sourceTree = "<group>"; };
+		2DF1FF53285F25AE0029160F /* Weather.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Weather.json; sourceTree = "<group>"; };
+		2DF1FF59285F2AA50029160F /* Bundle+unitTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+unitTest.swift"; sourceTree = "<group>"; };
+		2DF1FF67285F32C60029160F /* CityViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityViewModelTests.swift; sourceTree = "<group>"; };
 		30990E993633912187243449 /* Pods-WeatherApp-WeatherApp Prod.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp-WeatherApp Prod.release.xcconfig"; path = "Target Support Files/Pods-WeatherApp-WeatherApp Prod/Pods-WeatherApp-WeatherApp Prod.release.xcconfig"; sourceTree = "<group>"; };
 		4BF2FFB85A9DD8E7DD1D7E64 /* Pods_WeatherApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WeatherApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		593A7CFE920F26318A513183 /* Pods-WeatherApp.releasestag.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WeatherApp.releasestag.xcconfig"; path = "Target Support Files/Pods-WeatherApp/Pods-WeatherApp.releasestag.xcconfig"; sourceTree = "<group>"; };
@@ -401,7 +413,9 @@
 		2DCAD282285D07BB00D3F5A2 /* WeatherAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				2DF1FF52285F25580029160F /* WeatherNetworking */,
 				2DCAD283285D07BB00D3F5A2 /* WeatherAppTests.swift */,
+				2DF1FF67285F32C60029160F /* CityViewModelTests.swift */,
 			);
 			path = WeatherAppTests;
 			sourceTree = "<group>";
@@ -472,6 +486,16 @@
 				2DD8C494285D7193005D4B5D /* DataFormatter+Ext.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2DF1FF52285F25580029160F /* WeatherNetworking */ = {
+			isa = PBXGroup;
+			children = (
+				2DF1FF50285F246B0029160F /* WeatherAPITest.swift */,
+				2DF1FF53285F25AE0029160F /* Weather.json */,
+				2DF1FF59285F2AA50029160F /* Bundle+unitTest.swift */,
+			);
+			path = WeatherNetworking;
 			sourceTree = "<group>";
 		};
 		F3BD9800AA4370698F4B2933 /* Pods */ = {
@@ -687,6 +711,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2DF1FF54285F25AE0029160F /* Weather.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -902,6 +927,7 @@
 				2D966254285D0C41002124AC /* AppDelegate.swift in Sources */,
 				2DD8C482285D54ED005D4B5D /* LottieView.swift in Sources */,
 				2DF1FF46285EC7B70029160F /* ActivityIndicatorView.swift in Sources */,
+				2DF1FF55285F2A500029160F /* CurrentDay.swift in Sources */,
 				2D966255285D0C41002124AC /* SceneDelegate.swift in Sources */,
 				2DD8C442285D42FE005D4B5D /* ServerConfig.swift in Sources */,
 				2DD8C463285D449F005D4B5D /* HeaderView.swift in Sources */,
@@ -935,6 +961,7 @@
 				2D966266285D0D7A002124AC /* AppDelegate.swift in Sources */,
 				2DD8C483285D54EE005D4B5D /* LottieView.swift in Sources */,
 				2DF1FF47285EC7B70029160F /* ActivityIndicatorView.swift in Sources */,
+				2DF1FF56285F2A510029160F /* CurrentDay.swift in Sources */,
 				2D966267285D0D7A002124AC /* SceneDelegate.swift in Sources */,
 				2DD8C443285D42FE005D4B5D /* ServerConfig.swift in Sources */,
 				2DD8C464285D449F005D4B5D /* HeaderView.swift in Sources */,
@@ -995,13 +1022,17 @@
 				2DD8C4A2285DFB3D005D4B5D /* WeatherAPI.swift in Sources */,
 				2DD8C44E285D4313005D4B5D /* WeatherResponse.swift in Sources */,
 				2DF1FF4E285ECC430029160F /* WeatherAPIModel.swift in Sources */,
+				2DF1FF5D285F2AA50029160F /* Bundle+unitTest.swift in Sources */,
+				2DF1FF68285F32C60029160F /* CityViewModelTests.swift in Sources */,
 				2DD8C47E285D4DCD005D4B5D /* HourCollectionViewCell.swift in Sources */,
 				2DF1FF42285EA5A40029160F /* DayPreviewViewController.swift in Sources */,
 				2DD8C4AE285DFB4F005D4B5D /* TargetType.swift in Sources */,
 				2DD8C4B2285DFB54005D4B5D /* BaseAPI.swift in Sources */,
+				2DF1FF51285F246B0029160F /* WeatherAPITest.swift in Sources */,
 				2DCAD284285D07BB00D3F5A2 /* WeatherAppTests.swift in Sources */,
 				2DF1FF32285E7F5F0029160F /* DayDetailsHeader.swift in Sources */,
 				2DD8C4AA285DFB4A005D4B5D /* BaseResponse.swift in Sources */,
+				2DF1FF57285F2A510029160F /* CurrentDay.swift in Sources */,
 				2DD8C4A6285DFB45005D4B5D /* WeatherNetworking.swift in Sources */,
 				2DF1FF3C285E8CF40029160F /* CollectionViewTableViewCell.swift in Sources */,
 				2DD8C46B285D4585005D4B5D /* TodayWeatherView.swift in Sources */,
@@ -1035,6 +1066,7 @@
 				2DCAD28E285D07BB00D3F5A2 /* WeatherAppUITests.swift in Sources */,
 				2DD8C485285D54EF005D4B5D /* LottieView.swift in Sources */,
 				2DF1FF49285EC7B70029160F /* ActivityIndicatorView.swift in Sources */,
+				2DF1FF58285F2A520029160F /* CurrentDay.swift in Sources */,
 				2DD8C445285D4304005D4B5D /* ServerConfig.swift in Sources */,
 				2DCAD290285D07BB00D3F5A2 /* WeatherAppUITestsLaunchTests.swift in Sources */,
 				2DD8C466285D449F005D4B5D /* HeaderView.swift in Sources */,

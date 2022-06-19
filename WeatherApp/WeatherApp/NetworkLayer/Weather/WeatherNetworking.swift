@@ -14,10 +14,10 @@ enum WeatherNetworking {
 
 extension WeatherNetworking: TargetType{
     var baseURL: String {
-        switch self {
-        default:
+        get {
             return ServerConfig.shared.url ?? ""
         }
+        set {}
     }
 
     var path: String {
