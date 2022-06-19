@@ -30,8 +30,8 @@
             filePath = "WeatherApp/ViewModels/CityViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "63"
-            endingLineNumber = "63"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
             landmarkName = "dateFormat(offset:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -99,32 +99,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E6C76B1C-B076-4236-8060-73EA60CE6EA8"
+            uuid = "09CBB888-67D3-4723-9E60-38135758DE46"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeatherApp/Views/Controllers/DayPreviewViewController.swift"
+            filePath = "WeatherApp/Views/CustomViews/DayDetailsHeader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
-            landmarkName = "configureHeaderView()"
+            startingLineNumber = "110"
+            endingLineNumber = "110"
+            landmarkName = "configureViewData(currentDay:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E53197B7-776F-469A-ABCE-B301BC55D407"
+            uuid = "FE5CF7C1-6296-47A9-B0B2-546D1C47ADD9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WeatherApp/Views/Controllers/HomeViewController.swift"
+            filePath = "WeatherApp/Views/CustomViews/DayDetailsHeader.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "120"
-            endingLineNumber = "120"
-            landmarkName = "bindTableView()"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "init(frame:currentDay:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

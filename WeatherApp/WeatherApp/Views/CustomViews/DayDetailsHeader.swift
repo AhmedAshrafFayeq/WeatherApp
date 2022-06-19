@@ -96,12 +96,12 @@ class DayDetailsHeader: UIView {
             minMaxLabel.leadingAnchor.constraint(equalTo: tempLabel.leadingAnchor),
             
             titleLabel.leadingAnchor.constraint(equalTo: tempLabel.leadingAnchor),
-            titleLabel.topAnchor.constraint(equalTo: minMaxLabel.bottomAnchor,constant: 25),
+            titleLabel.topAnchor.constraint(equalTo: minMaxLabel.bottomAnchor,constant: 32),
             
-            stateImageView.topAnchor.constraint(equalTo: tempLabel.topAnchor),
-            stateImageView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -10),
-            stateImageView.widthAnchor.constraint(equalToConstant: 150),
-            stateImageView.heightAnchor.constraint(equalToConstant: 150)
+            stateImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
+            stateImageView.trailingAnchor.constraint(equalTo: trailingAnchor,constant: -16),
+            stateImageView.widthAnchor.constraint(equalToConstant: 180),
+            stateImageView.heightAnchor.constraint(equalToConstant: 180)
             
         ])
     }
@@ -112,7 +112,7 @@ class DayDetailsHeader: UIView {
         if let tempmin = currentDay.tempmin, let tempmax = currentDay.tempmax {
             minMaxLabel.text = "H:\(tempmax)º    L:\(tempmin)º"
         }
-        stateImageView.image = UIImage(systemName:  Icons.getWeatherIcon(icon: currentDay.icon ?? "sun.min.fill"), withConfiguration: UIImage.SymbolConfiguration(pointSize: 80))
+        stateImageView.image = UIImage(systemName:  Icons.getWeatherIcon(icon: currentDay.icon ?? "sun.min.fill"), withConfiguration: UIImage.SymbolConfiguration(pointSize: 100))
     }
     
     private func getDayDiscription(date: String) -> String {
@@ -120,7 +120,7 @@ class DayDetailsHeader: UIView {
         dateFormatter.dateFormat = "yyyy-MM-dd"
         let myDate = dateFormatter.date(from: date) ?? Date()
 
-        dateFormatter.dateFormat = "EEEE,\n MM d, yyyy"
+        dateFormatter.dateFormat = "EEEE,\nd, MM, yyyy"
         let somedateString = dateFormatter.string(from: myDate)
         
         return somedateString
