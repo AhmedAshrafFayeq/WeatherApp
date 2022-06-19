@@ -29,3 +29,8 @@
 * Multiple Environments (Development, Production, Staging)
 
 * Update Weather Info frequently in the background
+
+
+------------------------------------------------------
+
+* to run the app should install pod
