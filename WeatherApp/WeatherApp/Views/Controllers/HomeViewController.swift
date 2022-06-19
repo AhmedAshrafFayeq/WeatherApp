@@ -136,6 +136,12 @@ class HomeViewController: BaseViewController {
             
         }).disposed(by: disposeBag)
     }
+    
+    func handleAuthentication() {
+        if let  location = UserDefaults.standard.value(forKey: "currentLocation") {
+            
+        }
+    }
 }
 
 
