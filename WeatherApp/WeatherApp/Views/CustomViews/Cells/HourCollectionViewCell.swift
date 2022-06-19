@@ -22,7 +22,7 @@ class HourCollectionViewCell: UICollectionViewCell {
         return label
     }()
     
-    private let tempImageView : UIImageView = {
+    public let tempImageView : UIImageView = {
         let image = UIImageView()
         image.contentMode = .scaleAspectFit
         image.image = UIImage(systemName: "sun.min" , withConfiguration: UIImage.SymbolConfiguration(pointSize: 40))

@@ -27,7 +27,7 @@ class DayDetailsHeader: UIView {
         label.textColor = .white
         label.textAlignment = .center
         label.text =  "30º || 69º"
-        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.font = .systemFont(ofSize: 18, weight: .regular)
         return label
     }()
     
@@ -106,11 +106,11 @@ class DayDetailsHeader: UIView {
         ])
     }
     
-    private func configureViewData(currentDay: CurrentConditions) {
+    func configureViewData(currentDay: CurrentConditions) {
         tempLabel.text  = "\(currentDay.temp)ºF"
         titleLabel.text = getDayDiscription(date:currentDay.datetime)
         if let tempmin = currentDay.tempmin, let tempmax = currentDay.tempmax {
-            minMaxLabel.text = "\(tempmin) || \(tempmax)"
+            minMaxLabel.text = "H:\(tempmax)º    L:\(tempmin)º"
         }
         stateImageView.image = UIImage(systemName:  Icons.getWeatherIcon(icon: currentDay.icon ?? "sun.min.fill"), withConfiguration: UIImage.SymbolConfiguration(pointSize: 80))
     }
