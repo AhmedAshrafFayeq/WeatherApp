@@ -33,4 +33,7 @@
 
 ------------------------------------------------------
 
-* to run the app should install pod
+* to run the app should install pods
+
+* to fetch API data in the 2 other environmet (Prod & Stag):
+    please remove the whitespaces from BaseUrl in ServerConfig class
